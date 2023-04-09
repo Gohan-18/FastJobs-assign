@@ -1,19 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { logInUser, setLoginUser } from "@/utils/fetchingFunctions";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import store from "@/store/store";
 // axios.defaults.withCredentials = true;
 
 const inputForm = () => {
-
   const router = useRouter();
+  // let error = false;
+  const [error, setError] = useState(false);
+  // const { error } = useSelector((state) => state?.user)
+
+  // const getError = () => {
+  //   error = store.getState().user.error;
+  // }
+
+  // useEffect(() => {
+  //   getError()
+  // }, [error])
+
+  // let error = store.getState().user.error;
+
+  console.log(error);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { userName, password } = e.target;
     console.log(userName.value);
-    await logInUser(userName.value, password.value, router);
+    await logInUser(userName.value, password.value, router, error, setError);
     // await setLoginUser();
   };
 
@@ -50,7 +66,7 @@ const inputForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center justify-center lg:items-start lg:justify-start flex-col gap-2 w-full max-w-xs lg:w-44  "
+      className="flex items-center h-full justify-center lg:items-start lg:justify-start flex-col gap-2 w-full max-w-xs lg:w-44  relative"
     >
       <h3 className=" text-white text-lg font-semibold">
         For us to stay in touch
@@ -80,6 +96,14 @@ const inputForm = () => {
       >
         Continue
       </button>
+
+      <span
+        className={` absolute bottom-2 bg-red-500/50 text-white font-semibold px-3 py-1 rounded-md text-sm transition-all duration-300 lg:text-xs text-center ${
+          error ? ` opacity-100` : ` opacity-0`
+        } `}
+      >
+        Please check your username and password!!
+      </span>
     </form>
   );
 };

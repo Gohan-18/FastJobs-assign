@@ -3,22 +3,32 @@ import { createSlice } from "@reduxjs/toolkit";
 const setUserSlice = createSlice({
     name: 'setUser',
     initialState: {
-        user: {}
+        user: {},
+        authenticated: false,
+        userList: [],
+        error: false
     },
     reducers: {
         addUser(state, action) {
             state.user = action.payload
             console.log(state.user)
         },
-        // removeFromWishlist(state, action) {
-        //     const { product } = action.payload;
-        //     const index = state.list.findIndex(({ product : prod}) => prod.id === product.id);
-        //     if (index > -1) {
-        //         state.list.splice(index,1);
-        //     }
-        // }
+        addData(state, action) {
+            state.userList = action.payload
+            console.log(state.userList)
+        },
+        setAuthentication(state, action) {
+            state.authenticated = true
+        },
+        setErrorTrue(state) {
+            state.error = true
+            console.log(state.error)
+        },
+        setErrorFalse(state) {
+            state.error = false
+        }
     }
 })
 
-export const { addUser } = setUserSlice.actions;
+export const { addUser, setAuthentication, addData, setErrorTrue, setErrorFalse } = setUserSlice.actions;
 export default setUserSlice.reducer;
