@@ -1,12 +1,17 @@
-import React from 'react'
+"use client"
+
+import React from 'react';
+import ProfilePage from '../../components/profilePage'
+import { Provider } from 'react-redux';
+import store from '@/store/store';
 
 const page = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <h1>Profile</h1>
-      </div>
-    </main>
+    <>
+    <Provider store={store} >
+        <ProfilePage/>
+    </Provider>
+    </>
   )
 }
 

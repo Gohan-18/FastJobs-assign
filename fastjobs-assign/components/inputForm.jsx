@@ -1,48 +1,51 @@
 "use client";
 
 import React from "react";
-import axios from "axios";
-
-axios.defaults.withCredentials = true;
+import { logInUser, setLoginUser } from "@/utils/fetchingFunctions";
+import { useRouter } from 'next/navigation';
+// axios.defaults.withCredentials = true;
 
 const inputForm = () => {
+
+  const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { userName, password } = e.target;
     console.log(userName.value);
-    await logInUser(userName.value, password.value);
+    await logInUser(userName.value, password.value, router);
     // await setLoginUser();
   };
 
   // username: 'johndoe',
   // password: 'password',
 
-  const logInUser = async (username, pass) => {
-    console.log(username, pass);
-    try {
-      const { data } = await axios.post(
-        "https://frontendtestapi.staging.fastjobs.io/auth/login",
-        {
-          username: username,
-          password: pass,
-        }
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const logInUser = async (username, pass) => {
+  //   console.log(username, pass);
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://frontendtestapi.staging.fastjobs.io/auth/login",
+  //       {
+  //         username: username,
+  //         password: pass,
+  //       }
+  //     );
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const setLoginUser = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://frontendtestapi.staging.fastjobs.io/auth/me`
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const setLoginUser = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://frontendtestapi.staging.fastjobs.io/auth/me`
+  //     );
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <form
