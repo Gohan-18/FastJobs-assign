@@ -1,9 +1,17 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import InputForm from '../components/inputForm'
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { userName, password } = e.target;
+  //   console.log(userName.value)
+  // }
+
   return (
     <main className="flex min-h-screen items-center justify-center flex-col lg:flex-row">
       <div className="bg-indigo-500 w-full lg:w-2/3 h-screen flex pt-48 items-start justify-start relative px-5 sm:px-10 md:px-14 xl:px-32 ">
@@ -33,7 +41,8 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-slate-800 w-full lg:w-1/3 h-screen flex items-center justify-center lg:items-start lg:justify-start lg:pt-36 flex-col p-4 sm:pl-6 lg:pl-16 gap-2 ">
-        <div className="flex items-center justify-center lg:items-start lg:justify-start flex-col gap-2 w-full max-w-xs lg:w-44  ">
+        <InputForm/>
+        {/* <form className="flex items-center justify-center lg:items-start lg:justify-start flex-col gap-2 w-full max-w-xs lg:w-44  ">
           <h3 className=" text-white text-lg font-semibold">
             For us to stay in touch
           </h3>
@@ -55,10 +64,10 @@ export default function Home() {
             type="password"
             className=" outline-none bg-transparent border-2 text-sm rounded-md text-white px-2 py-2 text-left w-full"
           />
-          <button className="bg-indigo-400 text-white py-2 rounded-md text-xs text-center w-full border-2 border-indigo-400 ">
+          <button onClick={handleSubmit} type='submit' className="bg-indigo-400 text-white py-2 rounded-md text-xs text-center w-full border-2 border-indigo-400 ">
             Continue
           </button>
-        </div>
+        </form> */}
       </div>
     </main>
   );
