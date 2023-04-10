@@ -23,12 +23,12 @@ const inputForm = () => {
 
   // let error = store.getState().user.error;
 
-  console.log(error);
+  // console.log(error);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { userName, password } = e.target;
-    console.log(userName.value);
+    // console.log(userName.value);
     await logInUser(userName.value, password.value, router, error, setError);
     // await setLoginUser();
   };

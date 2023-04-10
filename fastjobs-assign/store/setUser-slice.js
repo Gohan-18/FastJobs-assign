@@ -11,18 +11,18 @@ const setUserSlice = createSlice({
     reducers: {
         addUser(state, action) {
             state.user = action.payload
-            console.log(state.user)
+            // console.log(state.user)
         },
         addData(state, action) {
             state.userList = action.payload
-            console.log(state.userList)
+            // console.log(state.userList)
         },
         setAuthentication(state, action) {
             state.authenticated = true
         },
         setErrorTrue(state) {
             state.error = true
-            console.log(state.error)
+            // console.log(state.error)
         },
         setErrorFalse(state) {
             state.error = false

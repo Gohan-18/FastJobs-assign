@@ -10,7 +10,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 export const logInUser = async (username, pass, router, error, setError) => {
-  console.log(username, pass);
+//   console.log(username, pass);
   try {
     const { data } = await axios.post(
       "https://frontendtestapi.staging.fastjobs.io/auth/login",
@@ -31,12 +31,12 @@ export const logInUser = async (username, pass, router, error, setError) => {
         router.push("/profile");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setError(true);
         setTimeout(() => setError(false), 2000);
       });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     setError(true);
     setTimeout(() => setError(false), 2000);
   }
@@ -50,7 +50,7 @@ export const setLoginUser = async (setError) => {
     // console.log(data);
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     setError(true);
     setTimeout(() => setError(false), 2000);
   }
@@ -61,10 +61,10 @@ export const fetchData = async () => {
     const { data } = await axios.get(
       `https://frontendtestapi.staging.fastjobs.io/data`
     );
-    console.log(data);
+    // console.log(data);
     // return data;
     store.dispatch(addData(data));
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
