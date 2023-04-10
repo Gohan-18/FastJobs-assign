@@ -3,65 +3,18 @@
 import React, { useEffect, useState } from "react";
 import { logInUser, setLoginUser } from "@/utils/fetchingFunctions";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
-import store from "@/store/store";
-// axios.defaults.withCredentials = true;
 
 const inputForm = () => {
   const router = useRouter();
-  // let error = false;
   const [error, setError] = useState(false);
-  // const { error } = useSelector((state) => state?.user)
-
-  // const getError = () => {
-  //   error = store.getState().user.error;
-  // }
-
-  // useEffect(() => {
-  //   getError()
-  // }, [error])
-
-  // let error = store.getState().user.error;
-
-  // console.log(error);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { userName, password } = e.target;
     // console.log(userName.value);
     await logInUser(userName.value, password.value, router, error, setError);
-    // await setLoginUser();
   };
 
-  // username: 'johndoe',
-  // password: 'password',
-
-  // const logInUser = async (username, pass) => {
-  //   console.log(username, pass);
-  //   try {
-  //     const { data } = await axios.post(
-  //       "https://frontendtestapi.staging.fastjobs.io/auth/login",
-  //       {
-  //         username: username,
-  //         password: pass,
-  //       }
-  //     );
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const setLoginUser = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://frontendtestapi.staging.fastjobs.io/auth/me`
-  //     );
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <form

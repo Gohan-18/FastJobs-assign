@@ -19,7 +19,6 @@ const profilePage = () => {
   const [searchedTerm, setSearchedTerm] = useState("");
 
   const columns = [
-    // { field: 'id', headerName: 'ID', width: 90 },
     {
       field: "first_name",
       headerName: "First name",
@@ -42,10 +41,8 @@ const profilePage = () => {
     {
       field: "email",
       headerName: "Email",
-      //   description: 'This column has a value getter and is not sortable.',
-      //   sortable: false,
-        width: 350,
-        editable: true,
+      width: 350,
+      editable: true,
     },
   ];
 
@@ -90,12 +87,28 @@ const profilePage = () => {
             gap: 2,
           }}
         >
-          <Box sx={{zIndex: 999 ,position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: {xs: 'center', md: 'start'}, height: '80px', backgroundColor: '#6366f1', px: {xs: '5px', md: '30px'}}} >
-            <Typography sx={{fontWeight: 700, fontSize: "25px", color: '#f4f4f4' }}>
+          <Box
+            sx={{
+              zIndex: 999,
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: { xs: "center", md: "start" },
+              height: "80px",
+              backgroundColor: "#6366f1",
+              px: { xs: "5px", md: "30px" },
+            }}
+          >
+            <Typography
+              sx={{ fontWeight: 700, fontSize: "25px", color: "#f4f4f4" }}
+            >
               Graphic Designer
             </Typography>
           </Box>
-          <Box sx={{ width: "100%", height: "750px", my: '80px' }}>
+          <Box sx={{ width: "100%", height: "750px", my: "80px" }}>
             <TextField
               sx={{ mb: "20px" }}
               size="small"

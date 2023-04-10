@@ -2,7 +2,6 @@ import {
   addData,
   addUser,
   setAuthentication,
-  setErrorTrue,
 } from "@/store/setUser-slice";
 import store from "@/store/store";
 import axios from "axios";
@@ -65,6 +64,6 @@ export const fetchData = async () => {
     // return data;
     store.dispatch(addData(data));
   } catch (error) {
-    // console.log(error);
+    alert(error);
   }
 };
